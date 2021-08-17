@@ -136935,6 +136935,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Map = void 0;
+;
 
 var Map = function () {
   function Map(id) {
@@ -136948,11 +136949,22 @@ var Map = function () {
   }
 
   ;
+
+  Map.prototype.addMarker = function (mappable) {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: mappable.location.lat,
+        lng: mappable.location.lng
+      }
+    });
+  };
+
+  ;
   return Map;
 }();
 
 exports.Map = Map;
-;
 },{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -136969,6 +136981,8 @@ var map_1 = require("./map");
 var user = new user_1.User();
 var company = new company_1.Company();
 var map = new map_1.Map('map');
+map.addMarker(user);
+map.addMarker(company);
 },{"./user":"src/user.ts","./company":"src/company.ts","./map":"src/map.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
