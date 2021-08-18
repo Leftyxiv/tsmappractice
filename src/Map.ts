@@ -29,7 +29,7 @@ export class Map {
     });
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: mappable.markerContent();
+        content: mappable.markerContent()
       });
       infoWindow.open(this.googleMap, marker);
     });
