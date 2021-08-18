@@ -14,4 +14,7 @@ export class User {
       lng: parseFloat(faker.address.longitude()),
     };
    }
+   markerContent () { 
+     return `Username ${this.name}`;
+   }
 };

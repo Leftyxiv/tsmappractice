@@ -136893,6 +136893,10 @@ var User = function () {
     };
   }
 
+  User.prototype.markerContent = function () {
+    return "Username " + this.name;
+  };
+
   return User;
 }();
 
@@ -136923,6 +136927,10 @@ var Company = function () {
       lng: parseFloat(faker_1.default.address.longitude())
     };
   }
+
+  Company.prototype.markerContent = function () {
+    return this.name + " - " + this.catchPhrase;
+  };
 
   return Company;
 }();
@@ -136962,7 +136970,7 @@ var Map = function () {
     });
     marker.addListener('click', function () {
       var infoWindow = new google.maps.InfoWindow({
-        content: mappable.location.lat + ", " + mappable.location.lng
+        content: mappable.markerContent()
       });
       infoWindow.open(_this.googleMap, marker);
     });
